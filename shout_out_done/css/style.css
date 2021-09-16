@@ -15,7 +15,7 @@ body {
 	margin: 50px auto;
 	overflow: auto;
 	width: 60%;
-	min-height: 500px;
+	min-height: 650px;
 }
 
 header h1 {
@@ -28,7 +28,7 @@ header h1 {
 #shouts {
 	width: 90%;
 	background-color: #f4f4f4;
-	height: 400;
+	height: 450px;
 	margin: 20px auto;
 	overflow: auto;
 }
@@ -54,7 +54,7 @@ header h1 {
 	height: 28px;
 	width: 48%;
 	padding: 3px;
-	margin-bottom: 20px;
+	margin-bottom: 10px;
 	border: #666666 solid 1px;
 }
 
