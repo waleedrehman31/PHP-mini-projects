@@ -1,7 +1,7 @@
 <?php include 'database.php' ?>
 <?php 
 	//create selelect query
-	$query = "SELECT * FROM shouts";
+	$query = "SELECT * FROM shouts ORDER BY id DESC";
 	$shouts = mysqli_query($connection, $query);
 
  ?>

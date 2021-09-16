@@ -10,16 +10,24 @@
 
 		//Set timezone
 		date_default_timezone_set("America/New_York");
-		$time = date("h:1:a a", time());
+		$time = date("h:m:s", time());
 
 		//Validate
-		if ( $user == '' || $message == '') {
+		if ( $user == '' && $message == '') {
 			$error = "Please fill in your name and message";
 			header('Location: index.php?error='.urlencode($error));
 			exit();
-		} 
+		} else if ( $user == '') {
+			$error = "Please fill in your name ";
+			header('Location: index.php?error='.urlencode($error));
+			exit();
+		} else if ( $message == ''){
+			$error = "Please fill in your message ";
+			header('Location: index.php?error='.urlencode($error));
+			exit();
+		}
 		else {
-			$query = "INSERT INTO shouts ('user', 'message', 'time') 
+			$query = "INSERT INTO shouts (user, message, time) 
 					VALUES ('$user', '$message', '$time')";
 
 			if (!mysqli_query($connection, $query)) {
