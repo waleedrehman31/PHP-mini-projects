@@ -13,14 +13,31 @@
 	</header>
 	<main>
 		<div class="container">
-			<h2>Test Your PHP Knowledge</h2>
-			<p>This is a multiple choice question to test your knowledge of PHP</p>
-			<ul>
-				<li><strong>Number of Questions: </strong>5</li>
-				<li><strong>Type: </strong>Multiple choice</li>
-				<li><strong>Estimate Time: </strong>4 Minutes</li>
-			</ul>
-			<a href="questions.php?n=1" class="start-quiz">Start Quiz</a>
+			<div class="current">
+				Question 1 of 5
+			</div>
+			<p class="question">What does php stand for?</p>
+			<form method="POST" action="process.php">
+				<ul class="choices">
+					<li>
+						<input type="radio" name="choice" value="1">
+						HyperText Preprocessor
+					</li>
+					<li>
+						<input type="radio" name="choice" value="1">
+						Private Home Page
+					</li>
+					<li>
+						<input type="radio" name="choice" value="1">
+						Personal Home Page
+					</li>
+					<li>
+						<input type="radio" name="choice" value="1">
+						Personal HyperText Preprocessor
+					</li>
+				</ul>
+				<input type="submit" name="submit" value="submit">
+			</form>
 		</div>
 	</main>
 	<footer>

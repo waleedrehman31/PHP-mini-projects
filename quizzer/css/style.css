@@ -39,3 +39,10 @@ footer {
 main {
 	padding-bottom: 20px;
 }
+
+.current {
+	padding: 10px;
+	background-color: #f4f4f4;
+	border: 1px dotted #aca;
+	margin: 20px 0px 10px 0px;
+}
