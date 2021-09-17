@@ -1,0 +1,41 @@
+body {
+	font-family: arial;
+	font-size: 15px;
+	line-height: 1.5em;
+}
+
+li {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+}
+
+.start-quiz {
+	display: inline-block;
+	color: #666;
+	background-color: #f4f4f4;
+	border:  1px dotted #ccc;
+	padding: 6px 13px;
+}
+
+.container {
+	width: 60%;
+	margin: 0 auto;
+	overflow: auto;
+}
+
+header {
+	border-bottom: 3px solid #f4f4f4;
+}
+
+footer {
+	border-top: 3px solid #f4f4f4; 
+	text-align: center;
+	padding-top: 5px;
+}
+
+main {
+	padding-bottom: 20px;
+}
