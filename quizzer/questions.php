@@ -1,3 +1,17 @@
+<?php include 'database.php' ?>
+<?php 
+	// set question number
+	$number = (int)$_GET['n'];
+
+	/*
+	* Get Question
+	*/
+	$query = "SELECT * FROM questions WHERE question_number = $number";	
+
+	// Get Result 
+	$result = $mysqli->query($query) or die($mysqli->error.__LINE__);
+	$question = $result->fetch_assoc();
+ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,7 +30,7 @@
 			<div class="current">
 				Question 1 of 5
 			</div>
-			<p class="question">What does php stand for?</p>
+			<p class="question"><?php echo $question['text']; ?></p>
 			<form method="POST" action="process.php">
 				<ul class="choices">
 					<li>
