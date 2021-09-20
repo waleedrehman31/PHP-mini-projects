@@ -9,8 +9,17 @@
 	$query = "SELECT * FROM questions WHERE question_number = $number";	
 
 	// Get Result 
-	$result = $mysqli->query($query) or die($mysqli->error.__LINE__);
-	$question = $result->fetch_assoc();
+	$result_question = $mysqli->query($query) or die($mysqli->error.__LINE__);
+	$question = $result_question->fetch_assoc();
+
+	/*
+	* Get Choices
+	*/
+	$query = "SELECT * FROM choices WHERE question_number = $number";	
+
+	// Get Result 
+	$result_choices = $mysqli->query($query) or die($mysqli->error.__LINE__);
+	$chocies = $result_choices->fetch_assoc();
  ?>
 <!DOCTYPE html>
 <html>
@@ -33,10 +42,12 @@
 			<p class="question"><?php echo $question['text']; ?></p>
 			<form method="POST" action="process.php">
 				<ul class="choices">
+					<?php foreach ($chocies['text'] as $choice) :?>
 					<li>
 						<input type="radio" name="choice" value="1">
 						HyperText Preprocessor
 					</li>
+				<?php endforeach ?>
 					<li>
 						<input type="radio" name="choice" value="1">
 						Private Home Page
