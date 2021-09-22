@@ -18,8 +18,7 @@
 	$query = "SELECT * FROM choices WHERE question_number = $number";	
 
 	// Get Result 
-	$result_choices = $mysqli->query($query) or die($mysqli->error.__LINE__);
-	$chocies = $result_choices->fetch_assoc();
+	$choices = $mysqli->query($query) or die($mysqli->error.__LINE__);
  ?>
 <!DOCTYPE html>
 <html>
@@ -42,24 +41,13 @@
 			<p class="question"><?php echo $question['text']; ?></p>
 			<form method="POST" action="process.php">
 				<ul class="choices">
-					<?php foreach ($chocies['text'] as $choice) :?>
+					<?php while ($row = $choices->fetch_assoc() ) :?>
 					<li>
-						<input type="radio" name="choice" value="1">
-						HyperText Preprocessor
+						<input type="radio" name="choice" value="<?php echo $row['id']; ?>">
+						<?php echo $row['text']; ?>
 					</li>
-				<?php endforeach ?>
-					<li>
-						<input type="radio" name="choice" value="1">
-						Private Home Page
-					</li>
-					<li>
-						<input type="radio" name="choice" value="1">
-						Personal Home Page
-					</li>
-					<li>
-						<input type="radio" name="choice" value="1">
-						Personal HyperText Preprocessor
-					</li>
+				<?php endwhile ?>
+					
 				</ul>
 				<input type="submit" name="submit" value="submit">
 			</form>
