@@ -14,16 +14,24 @@
  	if ($_POST) {
  		$number = $_POST['number'];
  		$selected_choice = $_POST['choice'];
- 		$next = $number++;
+ 		$next = $number+1;
+
+ 		/*
+		* Get Total Questions
+		*/
+		$query = "SELECT * FROM questions";
+		// Get Results
+		$results = $mysqli->query($query) or die($mysqli->error.__LINE__);
+		$total = $results->num_rows;
 
  		/*
  		* Get Correct Choice
  		*/
 
- 		$query = 'SELECT * FROM choices WHERE question_number = $number AND is_correct = 1';
+ 		$query = "SELECT * FROM `choices` WHERE question_number = $number AND is_correct = 1";
 
  		//GET RESULT
- 		$result = $mysqli->query($query) or die($mysqli->mysqli->error.__LINE__);
+ 		$result = $mysqli->query($query) or die($mysqli->error.__LINE__);
 
  		//GET ROW
  		$row = $result->fetch_assoc();
@@ -36,5 +44,14 @@
  			//Answer is correct
  			$_SESSION['score']++;
  		}
+
+ 		//Check Last question
+ 		if ($number == $total) {
+ 			header("Location: final.php");
+ 			exit();
+ 		} else {
+ 			header("Location: questions.php?n=".$next);
+ 		}
+ 		
  	}
   ?>

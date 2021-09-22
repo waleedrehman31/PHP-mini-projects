@@ -4,6 +4,15 @@
 	$number = (int)$_GET['n'];
 
 	/*
+	* Get Total Questions
+	*/
+	$query = "SELECT * FROM questions";
+	// Get Results
+	$results = $mysqli->query($query) or die($mysqli->error.__LINE__);
+	$total = $results->num_rows;
+
+
+	/*
 	* Get Question
 	*/
 	$query = "SELECT * FROM questions WHERE question_number = $number";	
@@ -24,7 +33,7 @@
 <html>
 <head>
 	<meta charset="utf-8" />
-	<title>PHP QUIZERR</title>
+	<title>QUESTIONs - PHP QUIZERR</title>
 	<link rel="stylesheet" type="text/css" href="./css/style.css" />
 </head>
 <body>
@@ -36,7 +45,7 @@
 	<main>
 		<div class="container">
 			<div class="current">
-				Question 1 of 5
+				Question <?php echo $question['question_number'] ?> of <?php echo $total; ?>
 			</div>
 			<p class="question"><?php echo $question['text']; ?></p>
 			<form method="POST" action="process.php">
