@@ -43,13 +43,14 @@
 				<ul class="choices">
 					<?php while ($row = $choices->fetch_assoc() ) :?>
 					<li>
-						<input type="radio" name="choice" value="<?php echo $row['id']; ?>">
+						<input type="radio" name="choice" value="<?php echo $row['id']; ?>" />
 						<?php echo $row['text']; ?>
 					</li>
 				<?php endwhile ?>
 					
 				</ul>
-				<input type="submit" name="submit" value="submit">
+				<input type="submit" name="submit" value="submit" />
+				<input type="hidden" name="number" value="<?php echo $number ?>" />
 			</form>
 		</div>
 	</main>
