@@ -1,4 +1,13 @@
 <?php include 'database.php' ?>
+<?php 
+	/*
+	* Get Total Questions
+	*/
+	$query = "SELECT * FROM questions";
+	// Get Results
+	$results = $mysqli->query($query) or die($mysqli->error.__LINE__);
+	$total = $results->num_rows;
+ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,9 +26,9 @@
 			<h2>Test Your PHP Knowledge</h2>
 			<p>This is a multiple choice question to test your knowledge of PHP</p>
 			<ul>
-				<li><strong>Number of Questions: </strong>5</li>
+				<li><strong>Number of Questions: </strong><?php echo $total; ?></li>
 				<li><strong>Type: </strong>Multiple choice</li>
-				<li><strong>Estimate Time: </strong>4 Minutes</li>
+				<li><strong>Estimate Time: </strong><?php echo $total * .5; ?> Minutes</li>
 			</ul>
 			<a href="questions.php?n=1" class="start-quiz">Start Quiz</a>
 		</div>
