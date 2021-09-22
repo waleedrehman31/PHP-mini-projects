@@ -1,8 +1,10 @@
+<?php session_start(); ?>
+
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8" />
-	<title>PHP QUIZERR</title>
+	<title>FINAL - PHP QUIZERR</title>
 	<link rel="stylesheet" type="text/css" href="./css/style.css" />
 </head>
 <body>
@@ -15,8 +17,8 @@
 		<div class="container">
 			<h2>You're Done</h2>
 			<p>Congrats! You have completed the test</p>
-			<p>Final Score: 5</p>
-			<a href="questions.php?n=1" class="start-quiz">Start Quiz</a>
+			<p>Final Score: <?php echo $_SESSION['score'] ?></p>
+			<a href="questions.php?n=1" class="start-quiz">Take Again</a>
 			
 		</div>
 	</main>
