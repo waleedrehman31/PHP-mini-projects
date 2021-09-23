@@ -10,8 +10,7 @@
 		$query = "INSERT INTO todos (text) VALUES ('$todo')";
 		$insert_row = $mysqli->query($query) or die($mysqli->error.__LINE__);
 		if ($insert_row) {
-			header('Location: index.php');
-				exit();
+			$message = "Todo Is Added";
 		};
 	};
 

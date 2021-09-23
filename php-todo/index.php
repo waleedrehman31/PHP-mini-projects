@@ -2,24 +2,13 @@
 <?php 
 	
 	/*
-	* POST TODO
+	* GET TODO
 	*/ 
 	$query = "SELECT * FROM todos";
 	$result = $mysqli->query($query) or die($mysqli->error.__LINE__);
 	
 
-	if (isset($_POST['add'])) {
-		$todo = $_POST['todo'];
-
-		/*
-		* POST TODO
-		*/ 
-		$query = "INSERT INTO todos (text) VALUES ('$todo')";
-		$insert_row = $mysqli->query($query) or die($mysqli->error.__LINE__);
-		if ($insert_row) {
-			$message = "Todo Is Added";
-		};
-	};
+	
  ?>
 <!DOCTYPE html>
 <html>
@@ -36,11 +25,11 @@
 		<div class="container">
 			<div class="form-section">
 				<form method="POST" action="index.php">
-					<?php if (isset($message)) {
-						echo "<div class=\"message\">".$message."</div>";
-					} ?>
 					<input type="text" name="todo" placeholder="write your todo here...." />
-					<input type="submit" name="add" value="Add Todo" />
+					<?php if (isset($message)) {
+						echo "<p>".$message."</p>";
+					} ?>
+					<input type="submit" name="add" value="Todo is Added" />
 				</form>
 			</div>
 			<div>
@@ -48,7 +37,8 @@
 				<ul>
 					<?php while ($todo = $result->fetch_assoc()) : ?>
 						<li>
-							<span><?php echo $todo['text'] ?></span>
+							<strong><span><?php echo $todo['text'] ?></span></strong>
+							<span class="time"><?php echo $todo['time'] ?></span>
 							<form>
 								<input type="submit" name="complete" value="Done" />
 								<input type="submit" name="delete" value="Delete" />
