@@ -4,7 +4,7 @@
 	/*
 	* GET TODO
 	*/ 
-	$query = "SELECT * FROM todos";
+	$query = "SELECT * FROM todos ";
 	$result = $mysqli->query($query) or die($mysqli->error.__LINE__);
 
 	
@@ -47,21 +47,19 @@
 								</form>
 							</li>
 						<?php endif ?>
-					<?php endwhile ?>
-					<h1>Complete TODOs</h1>
-					<?php while ($todos = $result->fetch_assoc()) : ?>
-						<?php  if ($complete) : ?>
+						<?php if ($todo['is_complete'] == 1 ) : ?>
 							<li>
-								<strong><span><?php echo $todos['text'] ?></span></strong>
-								<span class="time"><?php echo $todos['time'] ?></span>
+								<strong><span><?php echo $todo['text'] ?></span></strong>
+								<span class="time"><?php echo $todo['time'] ?></span>
 								<form method="POST" action="process.php">
-									<input type="hidden" name="id" value="<?php echo $todos['id'] ?>">
+									<button class="done-button" disabled/>Completed</button>
+									<input type="hidden" name="id" value="<?php echo $todo['id'] ?>" />
 									<input type="submit" name="delete" value="Delete" />
 								</form>
 							</li>
 						<?php endif ?>
 					<?php endwhile ?>
-				</ul>
+				</ul>				
 			</div>
 		</div>
 	</main>
