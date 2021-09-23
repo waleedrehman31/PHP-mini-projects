@@ -12,35 +12,38 @@
 	</header>
 	<main>
 		<div class="container">
-			<form >
-				<input type="text" name="todo" />
-				<input type="submit" name="add" value="Add Todo" />
-			</form>
+			<div class="form-section">
+				<form >
+					<input type="text" name="todo" placeholder="write your todo here...." />
+					<input type="submit" name="add" value="Add Todo" />
+				</form>
+			</div>
 			<div>
+				<h1>Your TODOs</h1>
 				<ul>
 					<li>
-						Learn HTML
+						<span>Learn HTML</span>
 						<form>
 							<input type="submit" name="complete" value="Done" />
 							<input type="submit" name="delete" value="Delete" />
 						</form>
 					</li>
 					<li>
-						Learn CSS
+						<span>Learn CSS</span>
 						<form>
 							<input type="submit" name="complete" value="Done" />
 							<input type="submit" name="delete" value="Delete" />
 						</form>
 					</li>
 					<li>
-						Learn JS
+						<span>Learn JS</span>
 						<form>
 							<input type="submit" name="complete" value="Done" />
 							<input type="submit" name="delete" value="Delete" />
 						</form>
 					</li>
 					<li>
-						Learn PHP
+						<span>Learn PHP</span>
 						<form>
 							<input type="submit" name="complete" value="Done" />
 							<input type="submit" name="delete" value="Delete" />
