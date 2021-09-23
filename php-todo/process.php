@@ -11,6 +11,7 @@
 		$insert_row = $mysqli->query($query) or die($mysqli->error.__LINE__);
 		if ($insert_row) {
 			$message = "Todo Is Added";
+			header('Location: index.php?message='.urlencode($message));
 		};
 	};
 

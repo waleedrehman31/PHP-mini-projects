@@ -24,11 +24,11 @@
 	<main>
 		<div class="container">
 			<div class="form-section">
-				<form method="POST" action="index.php">
+				<form method="POST" action="process.php">
 					<input type="text" name="todo" placeholder="write your todo here...." />
-					<?php if (isset($message)) {
-						echo "<p>".$message."</p>";
-					} ?>
+					<?php if (isset($_GET['message'])) : ?>
+						<p><?php echo $_GET['message'] ?></p>
+					<?php endif ?>
 					<input type="submit" name="add" value="Todo is Added" />
 				</form>
 			</div>
