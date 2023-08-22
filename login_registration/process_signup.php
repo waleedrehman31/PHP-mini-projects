@@ -39,7 +39,10 @@ $stmt->bind_param(
 );
 
 if ($stmt->execute()) {
-  echo "Submit Successfully";
+  header("Location: signup_success.html");
 } else {
+  if ($mysqli->errno === 1062) {
+    die("Email Already Exist");
+  }
   die($mysqli->error . "" . $mysqli->errno);
 }
