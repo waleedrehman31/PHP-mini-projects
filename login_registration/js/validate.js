@@ -12,6 +12,16 @@ validate
 		{
 			rule: "email",
 		},
+		{
+			validator: async (value) => {
+				const response = await fetch(
+					"validate_email.php?email=" + encodeURIComponent(value),
+				);
+				const json = await response.json();
+				return json.available;
+			},
+			errorMessage: "email already taken",
+		},
 	])
 	.addField("#password", [
 		{
