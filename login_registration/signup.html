@@ -8,11 +8,16 @@
 			rel="stylesheet"
 			href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css"
 		/>
+		<script
+			src="https://unpkg.com/just-validate@latest/dist/just-validate.production.min.js"
+			defer
+		></script>
+		<script src="js/validate.js" defer></script>
 	</head>
 	<body>
 		<h1>Sign Up</h1>
 
-		<form action="process_signup.php" method="POST">
+		<form action="process_signup.php" method="POST" id="signup" novalidate>
 			<div>
 				<label for="name">Name</label>
 				<input type="text" name="name" id="name" />
